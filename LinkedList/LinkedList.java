@@ -30,7 +30,30 @@ public class LinkedList {
         size++;
     }
 
+    public Object get(int index) {
+        Node curr = head;
+        if (index < 0 || index >= size) {
+            index = index % size;
+        }
+        for (int i = 0; i < size; i++) {
+            if (i == index) {
+                return curr.item;
+            }
+            curr = curr.next;
+        }
+        return null;
+    }
+
     public void add(Object obj, int pos) {
 
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+        for (Node curr = head; curr != null; curr = curr.next){
+            output += curr.item + " ";
+        }
+        return output;
     }
 }
