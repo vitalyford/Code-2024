@@ -33,7 +33,7 @@ public class LinkedList {
     public Object get(int index) {
         Node curr = head;
         if (index < 0 || index >= size) {
-            index = index % size;
+            index = Math.floorMod(index, size);
         }
         for (int i = 0; i < size; i++) {
             if (i == index) {

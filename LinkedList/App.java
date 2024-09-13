@@ -7,6 +7,6 @@ public class App {
         list.add("three");
         list.add("four");
 
-        System.out.println(list.get(-1));
+        System.out.println(list.get(1000000));
     }
 }
