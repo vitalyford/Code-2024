@@ -1,4 +1,5 @@
 package Recursion;
+
 import java.util.Random;
 
 public class BinarySearch {
@@ -15,36 +16,50 @@ public class BinarySearch {
     }
 
     /**
-     * This method will return the number of steps it took 
+     * This method will return the number of steps it took
      * to find the guessed number
+     * 
      * @param low
      * @param high
      * @return guessed number
      */
     public static int search(int low, int high, int steps) {
+        /* One-liner
+         * return verify((low + high) / 2) == 0 
+                ? steps 
+                : verify((low + high) / 2) == -1 
+                        ? search(low, (low + high) / 2 - 1, steps + 1)
+                        : search((low + high) / 2 + 1, high, steps + 1);
+         */
         // if verify return true, we found it!
         int mid = (low + high) / 2;
         int test = verify(mid);
         if (test == 0) {
             return steps;
-        }
-        else if (test == -1) {
+        } else if (test == -1) {
             return search(low, mid - 1, steps + 1);
-        }
-        else { // test == 1
+        } else { // test == 1
             return search(mid + 1, high, steps + 1);
         }
     }
 
     /**
      * This method returns:
-     *    -1 if the guess is less than midPoint
-     *     0 if the guess equals midPoint
-     *     1 if the guess is greater than midPoint
+     * -1 if the guess is less than midPoint
+     * 0 if the guess equals midPoint
+     * 1 if the guess is greater than midPoint
+     * 
      * @param midPoint
      * @return
      */
     public static int verify(int midPoint) {
+        /* One-liner
+         * return (guess < midPoint 
+                        ? -1 
+                        : guess == midPoint 
+                                ? 0 
+                                : 1);
+         */
         if (guess < midPoint) {
             return -1;
         }
