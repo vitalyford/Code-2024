@@ -19,22 +19,25 @@ public class RecursionPractice {
     }
 
     public static int rabbits(int months) {
-        int pairs = 0;
-        if (months <= 2) { // assumption: months is never <= 0
-            return 1;
-        }
+        return months <= 2 
+                ? 1 
+                : rabbits(months - 1) + rabbits(months - 2);
+        // int pairs = 0;
+        // if (months <= 2) { // assumption: months is never <= 0
+        //     return 1;
+        // }
 
-        // a is 1 month before, b is 2 months before the current one
-        int a = 1, b = 1;
+        // // a is 1 month before, b is 2 months before the current one
+        // int a = 1, b = 1;
 
-        // fact: months is greater than 2
-        while (months != 2) {
-            pairs = a + b;
-            b = a;
-            a = pairs;
-            months--;
-        }
-        return pairs;
+        // // fact: months is greater than 2
+        // while (months != 2) {
+        //     pairs = a + b;
+        //     b = a;
+        //     a = pairs;
+        //     months--;
+        // }
+        // return pairs;
     }
 
     public static void main(String[] args) {
