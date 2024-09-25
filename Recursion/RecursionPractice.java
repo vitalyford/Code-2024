@@ -40,8 +40,21 @@ public class RecursionPractice {
         // return pairs;
     }
 
+    public static void towers(int n, String src, String dst, String spare) {
+        if (n == 1) {
+            System.out.println("Moving from " + src + " to " + dst);
+        }
+        else {
+            towers(n - 1, src, spare, dst);
+            towers(1, src, dst, spare);
+            towers(n - 1, spare, dst, src);
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(reverseString("A Santa lived as a devil at NASA"));
-        System.out.println(rabbits(100)); // 21?
+        // System.out.println(reverseString("A Santa lived as a devil at NASA"));
+        // System.out.println(rabbits(10)); // 21?
+        int n = 6;
+        towers(n, "A", "B", "C");
     }
 }
