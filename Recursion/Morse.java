@@ -14,9 +14,9 @@ public class Morse {
             "-....--.-", "--...", "---..", "----.", "-----" };
 
     public static String getMappedLetter(String morse) {
-        for (int i = 0; i < alphabet.length; i++) {
-            if (alphabet[i].equals(morse)) {
-                return morseCodes[i];
+        for (int i = 0; i < morseCodes.length; i++) {
+            if (morseCodes[i].equals(morse)) {
+                return alphabet[i];
             }
         }
         return null;
@@ -27,10 +27,10 @@ public class Morse {
             result.add(word);
             return;
         }
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 10; i++) {
             String decodedLetter = getMappedLetter(message.substring(0, i));
             if (decodedLetter != null) {
-                decode(result, message, word + decodedLetter);
+                decode(result, message.substring(i), word + decodedLetter);
             }
         }
     }
