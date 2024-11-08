@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 import java.io.*;
 
 class Profile {
@@ -56,9 +54,16 @@ public class HashExample {
             if (!hm.containsKey(key)) {
                 hm.put(key, new ArrayList<>());
             }
-            hm.get(key).add(val);
+            ArrayList<String> dst = hm.get(key);
+            dst.add(val);
         }
 
-        System.out.println(hm.get("W"));
+        for (Map.Entry<String, ArrayList<String>> : hm.entrySet()) {
+            String key = entry.getKey();
+            ArrayList<String> val = entry.getValue();
+
+            System.out.println("Key " + key);
+            System.out.println("Value " + val);
+        }
     }
 }
