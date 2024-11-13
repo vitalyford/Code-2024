@@ -85,6 +85,7 @@ public class Sorting {
         humans.add(new Human("Bara", "Cuda", 26));
         humans.add(new Human("Chip", "Chino", -743));
 
+        
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print("Enter the name of the comparator: ");
@@ -95,8 +96,17 @@ public class Sorting {
             }
 
             Collections.sort(humans, comparators.get(compName));// , Collections.reverseOrder());
+            // System.out.println(humans);
 
-            System.out.println(humans);
+            PriorityQueue<Human> pq = new PriorityQueue<>(comparators.get(compName));
+            pq.offer(new Human("Bara", "Cuda", 26));
+            pq.offer(new Human("Chip", "Chino", -743));
+            pq.offer(new Human("Chip", "Munk", 233));
+
+
+            while (!pq.isEmpty()) {
+                System.out.println(pq.poll());
+            }
         }
     }
 }
